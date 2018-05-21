@@ -51,16 +51,19 @@
   
       //Editing the Student info.
       public function update_student(){ 
+        
          $this->load->model('Stud_Model');
-			
-         $data = array( 
-            'roll_no' => $this->input->post('roll_no'), 
-            'name' => $this->input->post('name') 
-         ); 
-			
-         $old_roll_no = $this->input->post('old_roll_no'); 
-         $this->Stud_Model->update($data,$old_roll_no);
-			
+      
+         if($this->input->post()) {
+        
+            $data = array( 
+              'roll_no' => $this->input->post('roll_no'), 
+              'name' => $this->input->post('name') 
+            );
+            $old_roll_no = $this->input->post('old_roll_no'); 
+            $this->Stud_Model->update($data,$old_roll_no);
+         }
+         
          $query = $this->db->get("stud"); 
          $data['records'] = $query->result(); 
          $this->load->view('Stud_view',$data); 

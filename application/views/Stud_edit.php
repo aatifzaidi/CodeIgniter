@@ -7,8 +7,6 @@
    </head> 
 	
    <body> 
-      <form method = "POST" action = "">
-		
          <?php 
             echo form_open('Stud_controller/update_student'); 
             echo form_hidden('old_roll_no',$old_roll_no); 
@@ -23,8 +21,6 @@
             echo form_submit(array('id'=>'submit','value'=>'Edit')); 
             echo form_close();
          ?> 
-			
-      </form> 
    </body>
 	
 </html>
